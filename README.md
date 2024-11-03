@@ -48,40 +48,40 @@
 
 1. Клонируйте репозиторий:
 
-   ```bash
-   git clone https://github.com/bulka-tureckaya/waste_management.git
-   cd waste_management
-   ```
+```bash
+git clone https://github.com/bulka-tureckaya/waste_management.git
+cd waste_management
+```
 2. Создайте виртуальное окружение:
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 3. Запуск приложения
-  Для запуска приложения без Docker используйте:
-  ```bash
-  uvicorn main:app --reload
-  ```
+Для запуска приложения без Docker используйте:
+```bash
+uvicorn main:app --reload
+```
 4. Работа с тестовыми данными
-  Чтобы запустить скрипт генерации тестовых данных, выполните:
-  ```bash
-  python generate_test_data.py
-  ```
+Чтобы запустить скрипт генерации тестовых данных, выполните:
+```bash
+python generate_test_data.py
+```
 5. Запуск тестов
-  Для запуска тестов используйте pytest:
-  ```bash
-  pytest test_routers.py
-  ```
+Для запуска тестов используйте pytest:
+```bash
+pytest test_routers.py
+```
 ## Запуск с Docker
 1. Запуск приложения
-  Для запуска приложения с помощью Docker выполните команду:
-  ```bash
-  docker-compose up --build
-  ```
+Для запуска приложения с помощью Docker выполните команду:
+```bash
+docker-compose up --build
+```
 2. Работа с тестовыми данными
-  Чтобы запустить генерацию тестовых данных в контейнере, откройте новый терминал и выполните:
-  ```bash
-  docker-compose exec fastapi python generate_test_data.py
-  ```
+Чтобы запустить генерацию тестовых данных в контейнере, откройте новый терминал и выполните:
+```bash
+docker-compose exec fastapi python generate_test_data.py
+```
