@@ -5,10 +5,16 @@
 - Организация (ОО) — сущность, генерирующая различные отходы.
 - Хранилище (МНО) — место, где происходит накопление и сортировка отходов.
 
+![1](https://github.com/user-attachments/assets/af23820c-eaa3-4b44-92d5-ca0e375a0d33)
+
+![2](https://github.com/user-attachments/assets/c816247c-4819-4869-a529-114555ecacb9)
+
+![3](https://github.com/user-attachments/assets/3f22d07c-903b-4da2-a057-14d57bfc0e88)
+
+
 ## Содержание
 
 - [Описание проекта](#описание-проекта)
-- [Требования](#требования)
 - [Установка](#установка)
 - [Запуск приложения](#запуск-приложения)
 - [Работа с тестовыми данными](#работа-с-тестовыми-данными)
@@ -38,41 +44,32 @@
 При передаче отходов необходимо выбирать ближайшее *Хранилище*
 
 
-## Требования
-
-- Python 3.9
-- fastapi
-- uvicorn
-- pydantic
-- python-multipart
-- jinja2
-- pytest
-- pytest-asyncio
-- httpx
-- uvicorn
-- sqlalchemy
-- requests
-
 ## Установка
 
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/bulka-tureckaya/waste_management
+   git clone https://github.com/bulka-tureckaya/waste_management.git
    cd waste_management
+   ```
+2. Создайте виртуальное окружение:
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
    pip install -r requirements.txt
    ```
-2. Запуск приложения
+3. Запуск приложения
   Для запуска приложения без Docker используйте:
   ```bash
   uvicorn main:app --reload
   ```
-3. Работа с тестовыми данными
+4. Работа с тестовыми данными
   Чтобы запустить скрипт генерации тестовых данных, выполните:
   ```bash
   python generate_test_data.py
   ```
-3. Запуск тестов
+5. Запуск тестов
   Для запуска тестов используйте pytest:
   ```bash
   pytest test_routers.py
