@@ -5,6 +5,13 @@
 - Организация (ОО) — сущность, генерирующая различные отходы.
 - Хранилище (МНО) — место, где происходит накопление и сортировка отходов.
 
+![1](https://github.com/user-attachments/assets/af23820c-eaa3-4b44-92d5-ca0e375a0d33)
+
+![2](https://github.com/user-attachments/assets/c816247c-4819-4869-a529-114555ecacb9)
+
+![3](https://github.com/user-attachments/assets/3f22d07c-903b-4da2-a057-14d57bfc0e88)
+
+
 ## Содержание
 
 - [Описание проекта](#описание-проекта)
