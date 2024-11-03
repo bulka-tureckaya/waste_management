@@ -8,7 +8,6 @@
 ## Содержание
 
 - [Описание проекта](#описание-проекта)
-- [Требования](#требования)
 - [Установка](#установка)
 - [Запуск приложения](#запуск-приложения)
 - [Работа с тестовыми данными](#работа-с-тестовыми-данными)
@@ -38,41 +37,32 @@
 При передаче отходов необходимо выбирать ближайшее *Хранилище*
 
 
-## Требования
-
-- Python 3.9
-- fastapi
-- uvicorn
-- pydantic
-- python-multipart
-- jinja2
-- pytest
-- pytest-asyncio
-- httpx
-- uvicorn
-- sqlalchemy
-- requests
-
 ## Установка
 
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/bulka-tureckaya/waste_management
+   git clone https://github.com/bulka-tureckaya/waste_management.git
    cd waste_management
+   ```
+2. Создайте виртуальное окружение:
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
    pip install -r requirements.txt
    ```
-2. Запуск приложения
+3. Запуск приложения
   Для запуска приложения без Docker используйте:
   ```bash
   uvicorn main:app --reload
   ```
-3. Работа с тестовыми данными
+4. Работа с тестовыми данными
   Чтобы запустить скрипт генерации тестовых данных, выполните:
   ```bash
   python generate_test_data.py
   ```
-3. Запуск тестов
+5. Запуск тестов
   Для запуска тестов используйте pytest:
   ```bash
   pytest test_routers.py
