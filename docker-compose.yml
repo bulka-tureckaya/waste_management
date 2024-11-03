@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build: .
+    container_name: waste_management_app
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'   # ограничение на 50% одного ядра
+          memory: 512M   # ограничение на 512 МБ ОП

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты сортировки</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+</head>
+<body>
+    <div class="section">
+        <h2>Состояние ДО сортировки:</h2>
+        <div class="mermaid">
+            graph TD;
+            {% for org in before_sorting.organizations %}
+                Org{{ org.id }}("{{ org.id }}<br>Пластик: {{ org.current.plastic }}/{{ org.max_capacity.plastic }}<br>Стекло: {{ org.current.glass }}/{{ org.max_capacity.glass }}<br>Био: {{ org.current.bio }}/{{ org.max_capacity.bio }}")
+            {% endfor %}
+            {% for storage in before_sorting.storages %}
+                Storage{{ storage.id }}["{{ storage.id }}<br>Пластик: {{ storage.current.plastic }}/{{ storage.max_capacity.plastic }}<br>Стекло: {{ storage.current.glass }}/{{ storage.max_capacity.glass }}<br>Био: {{ storage.current.bio }}/{{ storage.max_capacity.bio }}"]
+            {% endfor %}
+            {% for org in before_sorting.organizations %}
+                {% for target_id, distance in org.distances.items() %}
+                    Org{{ org.id }} -->|{{ distance }}| Storage{{ target_id }};
+                {% endfor %}
+            {% endfor %}
+            {% for storage in before_sorting.storages %}
+                {% for target_id, distance in storage.distances.items() %}
+                    Storage{{ storage.id }} -->|{{ distance }}| Storage{{ target_id }};
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Сумма переданных отходов:</h2>
+        {% if transfer_results.message %}
+            <p>{{ transfer_results.message }}</p>
+        {% else %}
+            <p>Биологические: {{ transfer_results.bio }}</p>
+            <p>Стекло: {{ transfer_results.glass }}</p>
+            <p>Пластик: {{ transfer_results.plastic }}</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h2>Состояние ПОСЛЕ сортировки:</h2>
+        <div class="mermaid">
+            graph TD;
+            {% for org in after_sorting.organizations %}
+                Org{{ org.id }}("{{ org.id }}<br>Пластик: {{ org.current.plastic }}/{{ org.max_capacity.plastic }}<br>Стекло: {{ org.current.glass }}/{{ org.max_capacity.glass }}<br>Био: {{ org.current.bio }}/{{ org.max_capacity.bio }}")
+            {% endfor %}
+            {% for storage in after_sorting.storages %}
+                Storage{{ storage.id }}["{{ storage.id }}<br>Пластик: {{ storage.current.plastic }}/{{ storage.max_capacity.plastic }}<br>Стекло: {{ storage.current.glass }}/{{ storage.max_capacity.glass }}<br>Био: {{ storage.current.bio }}/{{ storage.max_capacity.bio }}"]
+            {% endfor %}
+            {% for org in after_sorting.organizations %}
+                {% for target_id, distance in org.distances.items() %}
+                    Org{{ org.id }} -->|{{ distance }}| Storage{{ target_id }};
+                {% endfor %}
+            {% endfor %}
+            {% for storage in after_sorting.storages %}
+                {% for target_id, distance in storage.distances.items() %}
+                    Storage{{ storage.id }} -->|{{ distance }}| Storage{{ target_id }};
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
